@@ -1,5 +1,6 @@
 package solvers.move;
 
+import data.Amphi;
 import data.Seat;
 
 import java.util.List;
@@ -13,5 +14,5 @@ public interface MoveI {
      * @param list
      * @return the list of all the possible moves
      */
-    public List<Move> getMoves(List<Seat> list);
+    public List<Move> getMoves(List<Seat> list, Amphi amphi);
 }
