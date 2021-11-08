@@ -1,5 +1,6 @@
 package solvers;
 
+import data.Amphi;
 /**
  * General interface for each solver
  */
@@ -10,5 +11,5 @@ public interface Solver {
      */
     public long executionTime();
 
-    public boolean solve();
+    public boolean solve(Amphi amphi);
 }
