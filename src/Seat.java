@@ -25,7 +25,7 @@ public class Seat
         try
         {
             // Chemin du fichier texte, à changer par rapport à vous !!
-            File myObj = new File("C:\\Users\\Guill\\Documents\\GitHub\\MaximumSeatAllocationProblem\\seat.txt");
+            File myObj = new File("seat.txt");
             Scanner myReader = new Scanner(myObj);
             // Permet de skipper la 1ère ligne qui contient les en-têtes
             String data = myReader.nextLine();
