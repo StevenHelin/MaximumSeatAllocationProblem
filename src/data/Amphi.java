@@ -5,7 +5,7 @@ import java.util.List;
 public class Amphi {
 
 	private int n; //seats number
-	 private int beta; //distance de s�curit�
+	 private int beta; //distance de securite
 	 private List<Seat> listSeat;
 	 
 	public Amphi(int n, int beta, List<Seat> listSeat) {
@@ -24,6 +24,12 @@ public class Amphi {
 			}
 		}
 		return true;
+	}
+	
+	public void reset() {
+		for (Seat i : listSeat) {
+			i.setFree(true);
+		}
 	}
 
 	/**
