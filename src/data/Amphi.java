@@ -18,7 +18,7 @@ public class Amphi {
 	public boolean isValid(){
 		for(Seat i : listSeat){
 			for(Seat j : listSeat){
-				if(i.distance(j)<beta && i.equals(j) && i.isFree() == false && j.isFree() == false){
+				if(i.distance(j)<beta && !i.equals(j) && i.isFree() == false && j.isFree() == false){
 					return false;
 				}
 			}
@@ -64,7 +64,20 @@ public class Amphi {
 		this.listSeat = listSeat;
 	}
 	 
-	
+	public void greedy(){
+	    boolean occupy;
+		for (Seat s1 : listSeat){
+			occupy = true;
+			for (Seat s2 : listSeat){
+				if (!s2.isFree() && s1.distance(s2) < beta){
+					occupy = false;
+				}
+			}
+			if (occupy){
+				s1.setFree(false);
+			}
+		}
+	}
 	 
 	
 }
