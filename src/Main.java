@@ -1,3 +1,5 @@
+import data.Seat;
+
 import java.util.ArrayList;
 
 public class Main
