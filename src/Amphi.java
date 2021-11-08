@@ -3,7 +3,7 @@ import java.util.List;
 public class Amphi {
 
 	private int n; //seats number
-	 private int beta; //distance de sécurité
+	 private int beta; //distance de sï¿½curitï¿½
 	 private List<Seat> listSeat;
 	 
 	public Amphi(int n, int beta, List<Seat> listSeat) {
@@ -14,16 +14,30 @@ public class Amphi {
 	}
 	
 	public boolean isValid(){
-		  for(Seat i : listSeat){
-		    for(Seat j : listSeat){
-		      if(i.distance(j)<beta && i.equals(j) && i.isFree() == false && j.isFree() == false){
-		        return false;
-		      }
-		    }
-		  }
-		  return true;
+		for(Seat i : listSeat){
+			for(Seat j : listSeat){
+				if(i.distance(j)<beta && i.equals(j) && i.isFree() == false && j.isFree() == false){
+					return false;
+				}
+			}
 		}
+		return true;
+	}
 
+	/**
+	 * Counts the number of occupied seats in an amphitheater.
+	 * @Return the number of occupied seats.
+	 */
+	public int occupiedSeats(){
+		int occupied = 0;
+		for(Seat s: listSeat){
+			if(!s.isFree()){
+				occupied++;
+			}
+		}
+		return occupied;
+	}
+	
 	public int getN() {
 		return n;
 	}

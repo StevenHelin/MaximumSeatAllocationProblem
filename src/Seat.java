@@ -49,6 +49,15 @@ public class Seat
     }
 
     /**
+     * Computes the Euclidian distance between the current seat and another one.
+     * @Params j : the other seat with which we want to compute the distance.
+     * @Return the distance between the two seats.
+     */
+    public double distance(Seat j){
+        return Math.sqrt(Math.pow(this.getX() - j.getX(), 2) + Math.pow(this.getY() - j.getY(), 2));
+    }
+
+    /**
      * GETTERS
      */
 
