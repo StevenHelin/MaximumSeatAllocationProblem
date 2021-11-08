@@ -1,19 +1,21 @@
 package solvers.neighborhood;
 
-import data.Amphi;
-import data.Seat;
+public class Neighborhood {
+    int[][] matrix;
 
-import java.util.List;
+    public Neighborhood(int[][] matrix) {
+        this.matrix = matrix;
+    }
 
-/**
- * General interface the neightborhood
- */
-public interface Neighborhood {
-    /**
-     * Get all the neighborhood
-     * @param amphi
-     * @param seat
-     * @return list of seat in the neighborhood
-     */
-    public List<Seat> getNeighborhood(Amphi amphi, Seat seat);
+    public int[][] getMatrix() {
+        return matrix;
+    }
+
+    public void setMatrix(int[][] matrix) {
+        this.matrix = matrix;
+    }
+
+    public void buildMatrix(int[][] matrix){
+
+    }
 }
