@@ -1,3 +1,4 @@
+import data.Amphi;
 import data.Seat;
 
 import java.util.ArrayList;
