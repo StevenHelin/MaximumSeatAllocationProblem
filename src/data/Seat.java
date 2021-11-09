@@ -12,6 +12,11 @@ public class Seat
     private int y;          // Coordonnée y du siège
     private boolean free;   // Siège libre ou non
 
+    public Seat()
+    {
+
+    }
+
     public Seat(boolean free)
     {
         this.free = free;

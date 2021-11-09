@@ -2,6 +2,7 @@ import data.Amphi;
 import data.Seat;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Main
 {
