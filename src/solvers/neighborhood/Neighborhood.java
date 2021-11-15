@@ -6,8 +6,14 @@ import data.Seat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Neighborhood {
+public class Neighborhood
+{
     Amphi A= new Amphi();
+
+    public Neighborhood(Amphi a)
+    {
+        A = a;
+    }
 
     public int[][] buildMatrix(Amphi A){
         int[][] matrix = new int[0][0];
@@ -24,7 +30,14 @@ public class Neighborhood {
         }
         return matrix;
     }
-    
+
+    /**
+     * Permet de récupérer un siège dans l'amphi
+     * @param a Amphi
+     * @param x Coordonnée x
+     * @param y Coordonnée y
+     * @return Un siège
+     */
     public Seat findSeat(Amphi a, int x, int y)
     {
         Seat s = new Seat();
@@ -246,17 +259,21 @@ public class Neighborhood {
                 if(y == 0)
                 {
                     listNeighbors.add(findSeat(a, x, y + 75));
+                    listNeighbors.add(findSeat(a, x + 50, y + 75));
                 }
                 // Coin bas-gauche
                 else if(y == 525)
                 {
                     listNeighbors.add(findSeat(a, x, y - 75));
+                    listNeighbors.add(findSeat(a, x + 50, y - 75));
                 }
                 // Bordure gauche
                 else
                 {
                     listNeighbors.add(findSeat(a, x, y + 75));
                     listNeighbors.add(findSeat(a, x, y - 75));
+                    listNeighbors.add(findSeat(a, x + 50, y + 75));
+                    listNeighbors.add(findSeat(a, x + 50, y - 75));
                 }
                 break;
             }
@@ -272,17 +289,28 @@ public class Neighborhood {
                 if(y == 0)
                 {
                     listNeighbors.add(findSeat(a, x, y + 75));
+                    listNeighbors.add(findSeat(a, x - 120, y + 75));
+                    listNeighbors.add(findSeat(a, x + 50, y + 75));
                 }
                 // Coin bas-gauche
                 else if(y == 600)
                 {
                     listNeighbors.add(findSeat(a, x, y - 75));
+                    listNeighbors.add(findSeat(a, x - 120, y - 75));
+                    listNeighbors.add(findSeat(a, x + 50, y - 75));
                 }
                 // Bordure gauche
                 else
                 {
+                    if(y != 525)
+                    {
+                        listNeighbors.add(findSeat(a, x - 120, y + 75));
+                    }
                     listNeighbors.add(findSeat(a, x, y + 75));
                     listNeighbors.add(findSeat(a, x, y - 75));
+                    listNeighbors.add(findSeat(a, x - 120, y - 75));
+                    listNeighbors.add(findSeat(a, x + 50, y - 75));
+                    listNeighbors.add(findSeat(a, x + 50, y + 75));
                 }
                 break;
             }
@@ -298,17 +326,28 @@ public class Neighborhood {
                 if(y == 0)
                 {
                     listNeighbors.add(findSeat(a, x, y + 75));
+                    listNeighbors.add(findSeat(a, x - 120, y + 75));
+                    listNeighbors.add(findSeat(a, x + 50, y + 75));
                 }
                 // Coin bas-gauche
                 else if(y == 675)
                 {
                     listNeighbors.add(findSeat(a, x, y - 75));
+                    listNeighbors.add(findSeat(a, x - 120, y - 75));
+                    listNeighbors.add(findSeat(a, x + 50, y - 75));
                 }
                 // Bordure
                 else
                 {
+                    if(y != 600)
+                    {
+                        listNeighbors.add(findSeat(a, x - 120, y + 75));
+                    }
                     listNeighbors.add(findSeat(a, x, y + 75));
                     listNeighbors.add(findSeat(a, x, y - 75));
+                    listNeighbors.add(findSeat(a, x - 120, y - 75));
+                    listNeighbors.add(findSeat(a, x + 50, y - 75));
+                    listNeighbors.add(findSeat(a, x + 50, y + 75));
                 }
                 break;
             }
@@ -319,6 +358,12 @@ public class Neighborhood {
             {
                 listNeighbors.add(findSeat(a, x - 50, y));
                 listNeighbors.add(findSeat(a, x + 120, y));
+                listNeighbors.add(findSeat(a, x + 120, y + 75));
+                // S'il n'est pas au coin bas-droite, on ajoute le voisin se trouvant en bas à gauche
+                if(y != 525)
+                {
+                    listNeighbors.add(findSeat(a, x - 50, y + 75));
+                }
                 // Coin haut-droite
                 if(y == 0)
                 {
@@ -328,12 +373,16 @@ public class Neighborhood {
                 else if(y == 525)
                 {
                     listNeighbors.add(findSeat(a, x, y - 75));
+                    listNeighbors.add(findSeat(a, x + 120, y - 75));
+                    listNeighbors.add(findSeat(a, x - 50, y - 75));
                 }
                 // Bordure
                 else
                 {
                     listNeighbors.add(findSeat(a, x, y + 75));
                     listNeighbors.add(findSeat(a, x, y - 75));
+                    listNeighbors.add(findSeat(a, x + 120, y - 75));
+                    listNeighbors.add(findSeat(a, x - 50, y - 75));
                 }
                 break;
             }
@@ -341,6 +390,12 @@ public class Neighborhood {
             {
                 listNeighbors.add(findSeat(a, x - 50, y));
                 listNeighbors.add(findSeat(a, x + 120, y));
+                listNeighbors.add(findSeat(a, x + 120, y + 75));
+                // S'il n'est pas au coin bas-droite, on ajoute le voisin se trouvant à sa gauche
+                if(y != 600)
+                {
+                    listNeighbors.add(findSeat(a, x - 50, y + 75));
+                }
                 // Coin haut-droite
                 if(y == 0)
                 {
@@ -350,18 +405,27 @@ public class Neighborhood {
                 else if(y == 600)
                 {
                     listNeighbors.add(findSeat(a, x, y - 75));
+                    listNeighbors.add(findSeat(a, x + 120, y - 75));
+                    listNeighbors.add(findSeat(a, x - 50, y - 75));
                 }
                 // Bordure
                 else
                 {
                     listNeighbors.add(findSeat(a, x, y + 75));
                     listNeighbors.add(findSeat(a, x, y - 75));
+                    listNeighbors.add(findSeat(a, x + 120, y - 75));
+                    listNeighbors.add(findSeat(a, x - 50, y - 75));
                 }
                 break;
             }
             case 640:
             {
                 listNeighbors.add(findSeat(a, x - 50, y));
+                // S'il n'est pas au coin bas-droite, on ajoute le voisin se trouvant à sa gauche
+                if(y != 675)
+                {
+                    listNeighbors.add(findSeat(a, x - 50, y + 75));
+                }
                 // Coin haut-droite
                 if(y == 0)
                 {
@@ -371,12 +435,15 @@ public class Neighborhood {
                 else if(y == 675)
                 {
                     listNeighbors.add(findSeat(a, x, y - 75));
+                    listNeighbors.add(findSeat(a, x - 50, y - 75));
                 }
                 // Bordure
                 else
                 {
                     listNeighbors.add(findSeat(a, x, y + 75));
                     listNeighbors.add(findSeat(a, x, y - 75));
+                    listNeighbors.add(findSeat(a, x + 120, y - 75));
+                    listNeighbors.add(findSeat(a, x - 50, y - 75));
                 }
                 break;
             }
@@ -395,17 +462,25 @@ public class Neighborhood {
                 if(y == 0)
                 {
                     listNeighbors.add(findSeat(a, x, y + 75));
+                    listNeighbors.add(findSeat(a, x - 50, y + 75));
+                    listNeighbors.add(findSeat(a, x + 50, y + 75));
                 }
                 // Bordure du bas
                 else if((y == 525) || (y == 600) || (y == 675))
                 {
                     listNeighbors.add(findSeat(a, x, y - 75));
+                    listNeighbors.add(findSeat(a, x - 50, y - 75));
+                    listNeighbors.add(findSeat(a, x + 50, y - 75));
                 }
                 //
                 else
                 {
                     listNeighbors.add(findSeat(a, x, y + 75));
                     listNeighbors.add(findSeat(a, x, y - 75));
+                    listNeighbors.add(findSeat(a, x - 50, y + 75));
+                    listNeighbors.add(findSeat(a, x + 50, y + 75));
+                    listNeighbors.add(findSeat(a, x - 50, y - 75));
+                    listNeighbors.add(findSeat(a, x + 50, y - 75));
                 }
             }
             /** BORDURES **/

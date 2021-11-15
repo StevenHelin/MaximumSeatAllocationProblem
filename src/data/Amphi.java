@@ -89,7 +89,29 @@ public class Amphi {
 			}
 		}
 	}
-	 
-	
+
+	/**
+	 * Fonction qui trie une liste de sièges en fonction de son ID
+	 * @param s Liste de sièges à trier
+	 */
+	public void sortList(List<Seat> s)
+	{
+		boolean valide = false;
+		while(!valide)
+		{
+			valide = true;
+			for(int i = 0; i < s.size() - 1; i++)
+			{
+				if(s.get(i).getID() > s.get(i + 1).getID() )
+				{
+					valide = false;
+					Seat sTemp;
+					sTemp = s.get(i);
+					s.set(i, s.get(i + 1) );
+					s.set(i + 1, sTemp);
+				}
+			}
+		}
+	}
 }
 

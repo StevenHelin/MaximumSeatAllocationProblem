@@ -3,6 +3,7 @@ package data;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Seat
@@ -57,8 +58,8 @@ public class Seat
 
     /**
      * Computes the Euclidian distance between the current seat and another one.
-     * @Params j : the other seat with which we want to compute the distance.
-     * @Return the distance between the two seats.
+     * @param j : the other seat with which we want to compute the distance.
+     * @return the distance between the two seats.
      */
     public double distance(Seat j){
         return Math.sqrt(Math.pow(this.getX() - j.getX(), 2) + Math.pow(this.getY() - j.getY(), 2));
