@@ -21,9 +21,8 @@ public class HillClimber implements Solver {
         this.interation=interation;
     }
 
-    public void hillClimberSearch(Amphi x0){
-        Amphi x= x0.deepCopy();
-        Amphi xstar=x0.deepCopy();
+    public void hillClimberSearch(Amphi xstar){
+        Amphi x= xstar.deepCopy();
         Move selectmove;
         int i=0;
         Seat siegeSelect=choixSiege(x);
@@ -34,7 +33,6 @@ public class HillClimber implements Solver {
             }
             i++;
         }
-
 
     }
 
@@ -68,6 +66,7 @@ public class HillClimber implements Solver {
 
     @Override
     public boolean solve(Amphi amphi) {
-        return false;
+        hillClimberSearch(amphi);
+        return true;
     }
 }
