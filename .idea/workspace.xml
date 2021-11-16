@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4afb0706-593d-4541-b392-47f4fa2f7427" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/test/solvers/neighborhood/NeighborhoodTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/data/Amphi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Amphi.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/solvers/neighborhood/Neighborhood.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/solvers/neighborhood/Neighborhood.java" afterDir="false" />
     </list>
@@ -15,6 +17,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -33,46 +36,113 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="solvers.neighborhood" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
+  <component name="RunManager" selected="JUnit.NeighborhoodTest.neighbor4BorderLeft2">
+    <configuration name="NeighborhoodTest.neighbor4BorderLeft" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MaximumSeatAllocationProblem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="solvers.neighborhood.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="solvers.neighborhood" />
+      <option name="MAIN_CLASS_NAME" value="solvers.neighborhood.NeighborhoodTest" />
+      <option name="METHOD_NAME" value="neighbor4BorderLeft" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Seat" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Seat" />
+    <configuration name="NeighborhoodTest.neighbor4BorderLeft1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MaximumSeatAllocationProblem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="solvers.neighborhood.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="solvers.neighborhood" />
+      <option name="MAIN_CLASS_NAME" value="solvers.neighborhood.NeighborhoodTest" />
+      <option name="METHOD_NAME" value="neighbor4BorderLeft1" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NeighborhoodTest.neighbor4BorderLeft2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MaximumSeatAllocationProblem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="solvers.neighborhood.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="solvers.neighborhood" />
+      <option name="MAIN_CLASS_NAME" value="solvers.neighborhood.NeighborhoodTest" />
+      <option name="METHOD_NAME" value="neighbor4BorderLeft2" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NeighborhoodTest.neighbor4BorderRight" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MaximumSeatAllocationProblem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="solvers.neighborhood.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="solvers.neighborhood" />
+      <option name="MAIN_CLASS_NAME" value="solvers.neighborhood.NeighborhoodTest" />
+      <option name="METHOD_NAME" value="neighbor4BorderRight" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NeighborhoodTest.neighbor4CornerRight3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MaximumSeatAllocationProblem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="solvers.neighborhood.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="solvers.neighborhood" />
+      <option name="MAIN_CLASS_NAME" value="solvers.neighborhood.NeighborhoodTest" />
+      <option name="METHOD_NAME" value="neighbor4CornerRight3" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Seat" />
+        <item itemvalue="JUnit.NeighborhoodTest.neighbor4BorderLeft2" />
+        <item itemvalue="JUnit.NeighborhoodTest.neighbor4BorderLeft1" />
+        <item itemvalue="JUnit.NeighborhoodTest.neighbor4BorderRight" />
+        <item itemvalue="JUnit.NeighborhoodTest.neighbor4BorderLeft" />
+        <item itemvalue="JUnit.NeighborhoodTest.neighbor4CornerRight3" />
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -99,26 +169,26 @@
     <option name="LAST_COMMIT_MESSAGE" value="neighborhood" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1245" y="236" key="#com.intellij.ide.util.MemberChooser" timestamp="1635327012908">
+    <state x="1245" y="236" key="#com.intellij.ide.util.MemberChooser" timestamp="1637059830803">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1245" y="236" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1635327012908" />
-    <state width="914" height="858" key="GridCell.Tab.0.bottom" timestamp="1635328936748">
+    <state x="1245" y="236" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1637059830803" />
+    <state width="1877" height="2" key="GridCell.Tab.0.bottom" timestamp="1637059834688">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="858" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1635328936748" />
-    <state width="914" height="858" key="GridCell.Tab.0.center" timestamp="1635328936748">
+    <state width="1877" height="2" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1637059834688" />
+    <state width="1877" height="2" key="GridCell.Tab.0.center" timestamp="1637059834688">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="858" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1635328936748" />
-    <state width="914" height="858" key="GridCell.Tab.0.left" timestamp="1635328936748">
+    <state width="1877" height="2" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1637059834688" />
+    <state width="1877" height="2" key="GridCell.Tab.0.left" timestamp="1637059834688">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="858" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1635328936748" />
-    <state width="914" height="858" key="GridCell.Tab.0.right" timestamp="1635328936748">
+    <state width="1877" height="2" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1637059834688" />
+    <state width="1877" height="2" key="GridCell.Tab.0.right" timestamp="1637059834688">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="858" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1635328936748" />
+    <state width="1877" height="2" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1637059834688" />
     <state width="914" height="338" key="GridCell.Tab.1.bottom" timestamp="1635328262540">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -139,6 +209,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="880" y="98" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1635329315916" />
+    <state x="731" y="306" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1637052616589">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="731" y="306" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1637052616589" />
     <state x="1176" y="146" width="585" height="888" key="find.popup" timestamp="1635325335887">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

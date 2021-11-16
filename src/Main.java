@@ -36,7 +36,7 @@ public class Main
         List<Seat> listNeighbor;
         int x = 270, y = 525;
         listNeighbor = n.neighbor8(amphi, x, y);
-        amphi.sortList(listNeighbor);
+        amphi.sortListByID(listNeighbor);
         System.out.println("Les voisins du siège x = " + x + " et y = " + y + " sont : ");
         for (Seat value : listNeighbor)
         {

@@ -6,13 +6,20 @@ import data.Seat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Neighborhood
+public class Neighborhood implements NeighborhoodI
 {
     Amphi A= new Amphi();
+    boolean choiceNeighbor; // true = voisinage4, false = voisinage8
 
     public Neighborhood(Amphi a)
     {
         A = a;
+    }
+
+    public Neighborhood(Amphi a, boolean choice)
+    {
+        A = a;
+        choiceNeighbor = choice;
     }
 
     public int[][] buildMatrix(Amphi A){
@@ -488,5 +495,14 @@ public class Neighborhood
         return listNeighbors;
     }
 
+    @Override
+    public List<Seat> getNeighborhood(Amphi amphi, Seat seat)
+    {
+        if (this.choiceNeighbor)
+        {
+            return this.neighbor4(amphi,seat.getX(), seat.getY());
+        }
+        return this.neighbor8(amphi,seat.getX(), seat.getY());
+    }
 }
 

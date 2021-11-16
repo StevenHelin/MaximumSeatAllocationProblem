@@ -94,7 +94,7 @@ public class Amphi {
 	 * Fonction qui trie une liste de sièges en fonction de son ID
 	 * @param s Liste de sièges à trier
 	 */
-	public void sortList(List<Seat> s)
+	public void sortListByID(List<Seat> s)
 	{
 		boolean valide = false;
 		while(!valide)
