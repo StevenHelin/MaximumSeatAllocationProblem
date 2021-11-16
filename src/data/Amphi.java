@@ -9,12 +9,17 @@ public class Amphi {
 	 private List<Seat> listSeat;
 	 
 	public Amphi(int n, int beta, List<Seat> listSeat) {
-		super();
 		this.n = n;
 		this.beta = beta;
 		this.listSeat = listSeat;
 	}
-	
+
+	public Amphi() {
+		this.n = n;
+		this.beta = beta;
+		this.listSeat = listSeat;
+	}
+
 	public boolean isValid(){
 		for(Seat i : listSeat){
 			for(Seat j : listSeat){
