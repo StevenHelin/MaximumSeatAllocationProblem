@@ -105,7 +105,7 @@ class AmphiTest {
     	}
     	Amphi a = new Amphi(n, 100, listSeat);
     	
-    	Amphi.greedy();
+    	a.greedy();
     	
     	assertTrue(a.isValid());
     }

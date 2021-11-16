@@ -2,11 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4afb0706-593d-4541-b392-47f4fa2f7427" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/test/solvers/neighborhood/NeighborhoodTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MaximumSeatAllocationProblem/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MaximumSeatAllocationProblem/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MaximumSeatAllocationProblem/data/Amphi.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MaximumSeatAllocationProblem/data/Amphi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MaximumSeatAllocationProblem/data/Seat.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MaximumSeatAllocationProblem/data/Seat.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MaximumSeatAllocationProblem/solvers/HillClimber.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MaximumSeatAllocationProblem/solvers/HillClimber.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MaximumSeatAllocationProblem/solvers/neighborhood/Neighborhood.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MaximumSeatAllocationProblem/solvers/neighborhood/Neighborhood.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/Amphi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Amphi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/solvers/neighborhood/Neighborhood.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/solvers/neighborhood/Neighborhood.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/solvers/HillClimber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/solvers/HillClimber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/solvers/Solver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/solvers/Solver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/data/AmphiTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/data/AmphiTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/solvers/HillClimberTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/solvers/HillClimberTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,18 +57,45 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.NeighborhoodTest.neighbor4BorderLeft2">
-    <configuration name="NeighborhoodTest.neighbor4BorderLeft" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="JUnit.HillClimberTest">
+    <configuration name="HillClimberTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MaximumSeatAllocationProblem" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="solvers.neighborhood.*" />
+          <option name="PATTERN" value="solvers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="solvers.neighborhood" />
-      <option name="MAIN_CLASS_NAME" value="solvers.neighborhood.NeighborhoodTest" />
-      <option name="METHOD_NAME" value="neighbor4BorderLeft" />
+      <option name="PACKAGE_NAME" value="solvers" />
+      <option name="MAIN_CLASS_NAME" value="solvers.HillClimberTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HillClimberTest.solve" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MaximumSeatAllocationProblem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="solvers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="solvers" />
+      <option name="MAIN_CLASS_NAME" value="solvers.HillClimberTest" />
+      <option name="METHOD_NAME" value="solve" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -116,33 +149,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NeighborhoodTest.neighbor4CornerRight3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MaximumSeatAllocationProblem" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="solvers.neighborhood.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="solvers.neighborhood" />
-      <option name="MAIN_CLASS_NAME" value="solvers.neighborhood.NeighborhoodTest" />
-      <option name="METHOD_NAME" value="neighbor4CornerRight3" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.HillClimberTest" />
+        <item itemvalue="JUnit.HillClimberTest.solve" />
         <item itemvalue="JUnit.NeighborhoodTest.neighbor4BorderLeft2" />
         <item itemvalue="JUnit.NeighborhoodTest.neighbor4BorderLeft1" />
         <item itemvalue="JUnit.NeighborhoodTest.neighbor4BorderRight" />
-        <item itemvalue="JUnit.NeighborhoodTest.neighbor4BorderLeft" />
-        <item itemvalue="JUnit.NeighborhoodTest.neighbor4CornerRight3" />
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>

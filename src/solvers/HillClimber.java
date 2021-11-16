@@ -21,7 +21,7 @@ public class HillClimber implements Solver {
         this.interation=interation;
     }
 
-    public void hillClimberSearch(Amphi xstar){
+    public Amphi hillClimberSearch(Amphi xstar){
         Amphi x= xstar.deepCopy();
         Move selectmove;
         int i=0;
@@ -29,15 +29,20 @@ public class HillClimber implements Solver {
         while (critereArret(i)){
             selectmove = chooseMove(movei.getMoves(neighborhoodi.getNeighborhood(x,siegeSelect),x));
             if (isValid(selectmove,x)){
-                xstar= xstar.occupiedSeats() < x.occupiedSeats()? xstar : x;
+                Move finalSelectmove = selectmove;
+                Optional<Seat> seat=x.getListSeat().stream().filter(L->L.getID()== finalSelectmove.getSeat().getID()).findFirst();
+                if(seat.isPresent()){
+                    seat.get().setFree(finalSelectmove.isValue_free());
+                }
+                xstar= xstar.occupiedSeats() > x.occupiedSeats()? xstar : x;
             }
             i++;
         }
-
+    return xstar;
     }
 
     public Boolean critereArret(int interation){
-        return this.interation < interation;
+        return interation < this.interation;
     }
 
     public Seat choixSiege(Amphi amphi){
@@ -65,8 +70,7 @@ public class HillClimber implements Solver {
     }
 
     @Override
-    public boolean solve(Amphi amphi) {
-        hillClimberSearch(amphi);
-        return true;
+    public Amphi solve(Amphi amphi) {
+        return hillClimberSearch(amphi);
     }
 }
