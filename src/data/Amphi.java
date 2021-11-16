@@ -101,14 +101,14 @@ public class Amphi {
 		}
 	}
 
-	public void greedySolution(){
-		for (Seat s1 : listSeat){
-			s1.setFree(false);
-			if (!isValid()){
-				s1.setFree(true);
-			}
-		}
-	}
+    public void greedySolution(){
+        for (Seat s1 : listSeat){
+            s1.setFree(false);
+            if (!isValid()){
+                s1.setFree(true);
+            }
+        }
+    }
 
 	@Override
 	public boolean equals(Object o) {

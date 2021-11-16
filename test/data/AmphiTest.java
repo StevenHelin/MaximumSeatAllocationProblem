@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import data.Seat;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
@@ -15,7 +17,7 @@ class AmphiTest {
 
     @Test
     void greedyNbSeats() {
-        List<Seat> seatList = new ArrayList<>();
+        List<Seat> seatList = new ArrayList<Seat>();
         seatList.add(new Seat(1,0,0,true));
         seatList.add(new Seat(2,0,10,true));
         seatList.add(new Seat(3,10,0,true));
