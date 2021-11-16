@@ -3,7 +3,6 @@ package data;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Seat
@@ -20,6 +19,13 @@ public class Seat
 
     public Seat(boolean free)
     {
+        this.free = free;
+    }
+
+    public Seat(int ID, int x, int y, boolean free) {
+        this.ID = ID;
+        this.x = x;
+        this.y = y;
         this.free = free;
     }
 
@@ -106,4 +112,23 @@ public class Seat
     }
 
 
+    public Seat copy() {
+        Seat s = new Seat(true);
+        s.setFree(this.isFree());
+        s.setID(this.getID());
+        s.setX(this.getX());
+        s.setY(this.getY());
+        return s;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Seat seat = (Seat) o;
+        return ID == seat.ID &&
+                x == seat.x &&
+                y == seat.y &&
+                free == seat.free;
+    }
 }

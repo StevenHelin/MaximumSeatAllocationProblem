@@ -1,6 +1,8 @@
 package data;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Amphi {
 
@@ -74,6 +76,15 @@ public class Amphi {
 	public void setListSeat(List<Seat> listSeat) {
 		this.listSeat = listSeat;
 	}
+
+	public Amphi deepCopy(){
+		List<Seat> s = new ArrayList<Seat>();
+		for (Seat seat : this.listSeat){
+			s.add(seat.copy());
+		}
+		Amphi a = new Amphi(this.n,this.beta,s);
+		return a;
+	}
 	 
 	public void greedy(){
 	    boolean occupy;
@@ -113,5 +124,25 @@ public class Amphi {
 			}
 		}
 	}
+
+	public void greedySolution(){
+		for (Seat s1 : listSeat){
+			s1.setFree(false);
+			if (!isValid()){
+				s1.setFree(true);
+			}
+		}
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Amphi amphi = (Amphi) o;
+		return n == amphi.n &&
+				beta == amphi.beta &&
+				Objects.equals(listSeat, amphi.listSeat);
+	}
+
 }
 
