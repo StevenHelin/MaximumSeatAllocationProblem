@@ -1,53 +1,73 @@
 package solvers;
 
 import data.*;
+import solvers.move.Move;
+import solvers.move.MoveI;
+import solvers.neighborhood.NeighborhoodI;
 
-public class HillClimber {
-    int solutioninit=0;
-    int solution;
-    boolean stop = false;
+import java.util.List;
+import java.util.Optional;
+import java.util.Random;
 
-    public HillClimber(int solutioninit, int solution, boolean stop) {
-        this.solutioninit = solutioninit;
-        this.solution = solution;
-        this.stop = stop;
+public class HillClimber implements Solver {
+
+    MoveI movei;
+    NeighborhoodI neighborhoodi;
+    int interation;
+
+    public HillClimber(MoveI movei, NeighborhoodI neighborhoodi, int interation) {
+        this.movei = movei;
+        this.neighborhoodi = neighborhoodi;
+        this.interation=interation;
     }
 
-    public int getSolutioninit() {
-        return solutioninit;
-    }
-
-    public void setSolutioninit(int solutioninit) {
-        this.solutioninit = solutioninit;
-    }
-
-    public int getSolution() {
-        return solution;
-    }
-
-    public void setSolution(int solution) {
-        this.solution = solution;
-    }
-
-    public boolean isStop() {
-        return stop;
-    }
-
-    public void setStop(boolean stop) {
-        this.stop = stop;
-    }
-
-    public void hillClimberSearch(){
-        while(!stop){
-            solution=solutioninit;
-            //select a move in the list of move
-            //
-            //if (le mouvement existe){
-            //solution=m(x)
-           // }
-           // else{ stop=true }
+    public void hillClimberSearch(Amphi x0){
+        Amphi x= x0.deepCopy();
+        Amphi xstar=x0.deepCopy();
+        Move selectmove;
+        int i=0;
+        Seat siegeSelect=choixSiege(x);
+        while (critereArret(i)){
+            selectmove = chooseMove(movei.getMoves(neighborhoodi.getNeighborhood(x,siegeSelect),x));
+            if (isValid(selectmove,x)){
+                xstar= xstar.occupiedSeats() < x.occupiedSeats()? xstar : x;
+            }
+            i++;
         }
 
+
     }
 
+    public Boolean critereArret(int interation){
+        return this.interation < interation;
+    }
+
+    public Seat choixSiege(Amphi amphi){
+        Random r = new Random();
+        return amphi.getListSeat().get(r.nextInt(amphi.getN()));
+    }
+
+    public Move chooseMove(List<Move> listmove){
+        Random r= new Random();
+        return listmove.get(r.nextInt(listmove.size()));
+    }
+
+    public boolean isValid(Move move,Amphi amphi){
+        Amphi temp = amphi.deepCopy();
+        Optional<Seat> seat=temp.getListSeat().stream().filter(L->L.getID()==move.getSeat().getID()).findFirst();
+        if(seat.isPresent()){
+            seat.get().setFree(move.isValue_free());
+        }
+        return temp.isValid();
+    }
+
+    @Override
+    public long executionTime() {
+        return 0;
+    }
+
+    @Override
+    public boolean solve(Amphi amphi) {
+        return false;
+    }
 }
