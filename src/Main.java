@@ -16,7 +16,5 @@ public class Main
         amphi.greedy();
         amphi.greedySolution();
 
-        }
-
     }
 }
