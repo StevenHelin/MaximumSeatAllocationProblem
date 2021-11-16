@@ -18,7 +18,7 @@ public class Main
                     + " Libre ? : " + s.isFree() );
         }
         Amphi amphi = new Amphi(listSeats.size(), 100, listSeats);
-        amphi.greedy();
+        amphi.greedySolution();
         System.out.println("valide? : " + amphi.isValid() + " nb sieges occupés : " + amphi.occupiedSeats());
         for (Seat s : amphi.getListSeat())
         {
