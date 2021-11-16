@@ -2,6 +2,7 @@ package data;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Amphi {
 
@@ -108,6 +109,16 @@ public class Amphi {
 			}
 		}
 	}
-	
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Amphi amphi = (Amphi) o;
+		return n == amphi.n &&
+				beta == amphi.beta &&
+				Objects.equals(listSeat, amphi.listSeat);
+	}
+
 }
 
