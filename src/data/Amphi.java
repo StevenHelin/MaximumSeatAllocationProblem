@@ -1,5 +1,6 @@
 package data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Amphi {
@@ -73,6 +74,15 @@ public class Amphi {
 
 	public void setListSeat(List<Seat> listSeat) {
 		this.listSeat = listSeat;
+	}
+
+	public Amphi deepCopy(){
+		List<Seat> s = new ArrayList<Seat>();
+		for (Seat seat : this.listSeat){
+			s.add(seat.copy());
+		}
+		Amphi a = new Amphi(this.n,this.beta,s);
+		return a;
 	}
 	 
 	public void greedy(){

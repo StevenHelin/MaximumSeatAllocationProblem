@@ -100,4 +100,12 @@ public class Seat
     }
 
 
+    public Seat copy() {
+        Seat s = new Seat(true);
+        s.setFree(this.isFree());
+        s.setID(this.getID());
+        s.setX(this.getX());
+        s.setY(this.getY());
+        return s;
+    }
 }
