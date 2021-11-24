@@ -28,13 +28,17 @@ public class HillClimber implements Solver {
         Seat siegeSelect=choixSiege(x);
         while (critereArret(i)){
             selectmove = chooseMove(movei.getMoves(neighborhoodi.getNeighborhood(x,siegeSelect),x));
+            if(selectmove==null){
+                break;
+            }
             if (isValid(selectmove,x)){
                 Move finalSelectmove = selectmove;
                 Optional<Seat> seat=x.getListSeat().stream().filter(L->L.getID()== finalSelectmove.getSeat().getID()).findFirst();
                 if(seat.isPresent()){
                     seat.get().setFree(finalSelectmove.isValue_free());
+                    siegeSelect=seat.get();
                 }
-                xstar= xstar.occupiedSeats() > x.occupiedSeats()? xstar : x;
+                xstar= xstar.occupiedSeats() >= x.occupiedSeats()? xstar : x.deepCopy();
             }
             i++;
         }
@@ -52,6 +56,9 @@ public class HillClimber implements Solver {
 
     public Move chooseMove(List<Move> listmove){
         Random r= new Random();
+        if (listmove.size()==0){
+            return null;
+        }
         return listmove.get(r.nextInt(listmove.size()));
     }
 
