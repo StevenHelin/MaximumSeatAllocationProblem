@@ -8,6 +8,7 @@ import solvers.neighborhood.NeighborhoodI;
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
+import java.util.logging.Logger;
 
 public class HillClimber implements Solver {
 
@@ -21,14 +22,15 @@ public class HillClimber implements Solver {
         this.interation=interation;
     }
 
-    public Amphi hillClimberSearch(Amphi xstar){
-        Amphi x= xstar.deepCopy();
+    public Amphi hillClimberSearch(Amphi xd){
+        Amphi x= xd.deepCopy(),xstar = xd.deepCopy();
         Move selectmove;
         int i=0;
         Seat siegeSelect=choixSiege(x);
         while (critereArret(i)){
             selectmove = chooseMove(movei.getMoves(neighborhoodi.getNeighborhood(x,siegeSelect),x));
             if(selectmove==null){
+                Logger.getGlobal().info("Arrêt par move inexistant à " + siegeSelect + "et i = " + i);
                 break;
             }
             if (isValid(selectmove,x)){
@@ -42,6 +44,7 @@ public class HillClimber implements Solver {
             }
             i++;
         }
+
     return xstar;
     }
 
