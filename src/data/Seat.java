@@ -17,15 +17,15 @@ public class Seat
 
     }
 
-    public Seat(boolean free)
-    {
-        this.free = free;
-    }
-
     public Seat(int ID, int x, int y, boolean free) {
         this.ID = ID;
         this.x = x;
         this.y = y;
+        this.free = free;
+    }
+
+    public Seat(boolean free)
+    {
         this.free = free;
     }
 
