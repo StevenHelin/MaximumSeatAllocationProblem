@@ -17,7 +17,7 @@ public class PossibleMove implements MoveI{
         Amphi bis = amphi.deepCopy();
         for(Seat seat : bis.getListSeat()){
             seat.setFree(false);
-            if(amphi.isValid())list_move.add(new Move(seat,false));
+            if(bis.isValid())list_move.add(new Move(seat,false));
             seat.setFree(true);
         }
         return list_move;

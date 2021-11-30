@@ -17,7 +17,7 @@ class HillClimberTest {
         ArrayList<Seat> listSeats = new ArrayList<>();
         seat.loadSeat(listSeats);
         Amphi amphi = new Amphi(listSeats.size(), 0, listSeats);
-        HillClimber hillClimber= new HillClimber(new PossibleMove(),new Neighborhood(amphi,true),100);
+        HillClimber hillClimber= new HillClimber(new PossibleMove(),new Neighborhood(amphi,true),100, HillClimber.MoveChoice.DEFAULT, HillClimber.StopChoice.ITERATION);
         //amphi.greedySolution();
         amphi = hillClimber.solve(amphi);
         System.out.println("valide? : " + amphi.isValid() + " nb sieges occupés : " + amphi.occupiedSeats());
