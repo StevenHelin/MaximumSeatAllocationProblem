@@ -1,6 +1,8 @@
 package data;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Amphi {
 
@@ -9,12 +11,17 @@ public class Amphi {
 	 private List<Seat> listSeat;
 	 
 	public Amphi(int n, int beta, List<Seat> listSeat) {
-		super();
 		this.n = n;
 		this.beta = beta;
 		this.listSeat = listSeat;
 	}
-	
+
+	public Amphi() {
+		this.n = n;
+		this.beta = beta;
+		this.listSeat = listSeat;
+	}
+
 	public boolean isValid(){
 		for(Seat i : listSeat){
 			for(Seat j : listSeat){
@@ -69,6 +76,15 @@ public class Amphi {
 	public void setListSeat(List<Seat> listSeat) {
 		this.listSeat = listSeat;
 	}
+
+	public Amphi deepCopy(){
+		List<Seat> s = new ArrayList<Seat>();
+		for (Seat seat : this.listSeat){
+			s.add(seat.copy());
+		}
+		Amphi a = new Amphi(this.n,this.beta,s);
+		return a;
+	}
 	 
 	public void greedy(){
 	    boolean occupy;
@@ -84,7 +100,49 @@ public class Amphi {
 			}
 		}
 	}
-	 
-	
+
+	/**
+	 * Fonction qui trie une liste de sièges en fonction de son ID
+	 * @param s Liste de sièges à trier
+	 */
+	public void sortListByID(List<Seat> s)
+	{
+		boolean valide = false;
+		while(!valide)
+		{
+			valide = true;
+			for(int i = 0; i < s.size() - 1; i++)
+			{
+				if(s.get(i).getID() > s.get(i + 1).getID() )
+				{
+					valide = false;
+					Seat sTemp;
+					sTemp = s.get(i);
+					s.set(i, s.get(i + 1) );
+					s.set(i + 1, sTemp);
+				}
+			}
+		}
+	}
+
+	public void greedySolution(){
+		for (Seat s1 : listSeat){
+			s1.setFree(false);
+			if (!isValid()){
+				s1.setFree(true);
+			}
+		}
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Amphi amphi = (Amphi) o;
+		return n == amphi.n &&
+				beta == amphi.beta &&
+				Objects.equals(listSeat, amphi.listSeat);
+	}
+
 }
 

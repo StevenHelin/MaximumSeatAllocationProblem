@@ -12,6 +12,18 @@ public class Seat
     private int y;          // Coordonnée y du siège
     private boolean free;   // Siège libre ou non
 
+    public Seat()
+    {
+
+    }
+
+    public Seat(int ID, int x, int y, boolean free) {
+        this.ID = ID;
+        this.x = x;
+        this.y = y;
+        this.free = free;
+    }
+
     public Seat(boolean free)
     {
         this.free = free;
@@ -52,8 +64,8 @@ public class Seat
 
     /**
      * Computes the Euclidian distance between the current seat and another one.
-     * @Params j : the other seat with which we want to compute the distance.
-     * @Return the distance between the two seats.
+     * @param j : the other seat with which we want to compute the distance.
+     * @return the distance between the two seats.
      */
     public double distance(Seat j){
         return Math.sqrt(Math.pow(this.getX() - j.getX(), 2) + Math.pow(this.getY() - j.getY(), 2));
@@ -100,4 +112,23 @@ public class Seat
     }
 
 
+    public Seat copy() {
+        Seat s = new Seat(true);
+        s.setFree(this.isFree());
+        s.setID(this.getID());
+        s.setX(this.getX());
+        s.setY(this.getY());
+        return s;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Seat seat = (Seat) o;
+        return ID == seat.ID &&
+                x == seat.x &&
+                y == seat.y &&
+                free == seat.free;
+    }
 }

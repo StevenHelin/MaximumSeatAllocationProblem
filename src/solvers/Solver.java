@@ -11,5 +11,5 @@ public interface Solver {
      */
     public long executionTime();
 
-    public boolean solve(Amphi amphi);
+    public Amphi solve(Amphi amphi);
 }
