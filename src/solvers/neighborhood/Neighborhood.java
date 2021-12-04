@@ -496,8 +496,8 @@ public class Neighborhood implements NeighborhoodI
     }
 
     @Override
-    public List<Seat> getNeighborhood(Amphi amphi, Seat seat)
-    {
+    public List<Seat> getNeighborhood(Amphi amphi, Seat seat) {
+        this.A=amphi;
         if (this.choiceNeighbor)
         {
             return this.neighbor4(amphi,seat.getX(), seat.getY());
