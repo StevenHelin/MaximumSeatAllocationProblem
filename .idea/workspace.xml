@@ -2,14 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4afb0706-593d-4541-b392-47f4fa2f7427" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MaximumSeatAllocationProblem/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MaximumSeatAllocationProblem/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MaximumSeatAllocationProblem/data/Amphi.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MaximumSeatAllocationProblem/data/Amphi.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MaximumSeatAllocationProblem/data/Seat.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MaximumSeatAllocationProblem/data/Seat.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MaximumSeatAllocationProblem/solvers/HillClimber.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MaximumSeatAllocationProblem/solvers/HillClimber.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MaximumSeatAllocationProblem/solvers/Solver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MaximumSeatAllocationProblem/solvers/Solver.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MaximumSeatAllocationProblem/solvers/neighborhood/Neighborhood.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MaximumSeatAllocationProblem/solvers/neighborhood/Neighborhood.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/MaximumSeatAllocationProblem/data/AmphiTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/MaximumSeatAllocationProblem/data/AmphiTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/MaximumSeatAllocationProblem/solvers/HillClimberTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/MaximumSeatAllocationProblem/solvers/HillClimberTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/test/MaximumSeatAllocationProblem/solvers/neighborhood/NeighborhoodTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/MaximumSeatAllocationProblem/solvers/neighborhood/NeighborhoodTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/solvers/HillClimber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/solvers/HillClimber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/solvers/Solver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/solvers/Solver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/solvers/move/PossibleMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/solvers/move/PossibleMove.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/solvers/neighborhood/Neighborhood.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/solvers/neighborhood/Neighborhood.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/data/AmphiTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/data/AmphiTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/solvers/HillClimberTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/solvers/HillClimberTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/solvers/neighborhood/NeighborhoodTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/solvers/neighborhood/NeighborhoodTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

@@ -347,7 +347,7 @@ class NeighborhoodTest
     }
 
     /**
-     * Test de neighbor4 pour la bordure droite (secteur 2)
+     * Test de neighbor4 pour la bordure droite (secteur 3)
      */
     @Test
     void neighbor4BorderRight3()
@@ -380,6 +380,96 @@ class NeighborhoodTest
     /*----- BORDURE DROITE -----*/
 
     /*----- BORDURE HAUT-----*/
+
+    /**
+     * Test de neighbor4 pour la bordure haute (secteur 1)
+     */
+    @Test
+    void neighbor4BorderHigh1()
+    {
+        Seat seat = new Seat(true);
+        ArrayList<Seat> listSeats = new ArrayList<>();
+        seat.loadSeat(listSeats);
+        Amphi amphi = new Amphi(listSeats.size(), 100, listSeats);
+        Neighborhood n = new Neighborhood(amphi);
+        List<Seat> listNeighbors;
+        int x = 50, y = 0;
+        for(; x < 150; x += 50)
+        {
+            listNeighbors = n.neighbor4(amphi, x, y);
+            amphi.sortListByID(listNeighbors);
+            System.out.println("Les voisins du siège x = " + x + " et y = " + y + " sont : ");
+            for (Seat value : listNeighbors)
+            {
+                System.out.println("Siège ID " + value.getID()
+                        + ", x = " + value.getX()
+                        + ", y = " + value.getY());
+            }
+            assertEquals(x - 50, listNeighbors.get(0).getX());
+            assertEquals(y + 75, listNeighbors.get(1).getY());
+            assertEquals(x + 50, listNeighbors.get(2).getX());
+            System.out.println("");
+        }
+    }
+
+    /**
+     * Test de neighbor4 pour la bordure haute (secteur 2)
+     */
+    @Test
+    void neighbor4BorderHigh2()
+    {
+        Seat seat = new Seat(true);
+        ArrayList<Seat> listSeats = new ArrayList<>();
+        seat.loadSeat(listSeats);
+        Amphi amphi = new Amphi(listSeats.size(), 100, listSeats);
+        Neighborhood n = new Neighborhood(amphi);
+        List<Seat> listNeighbors;
+        int x = 320, y = 0;
+        listNeighbors = n.neighbor4(amphi, x, y);
+        amphi.sortListByID(listNeighbors);
+        System.out.println("Les voisins du siège x = " + x + " et y = " + y + " sont : ");
+        for (Seat value : listNeighbors)
+        {
+            System.out.println("Siège ID " + value.getID()
+                    + ", x = " + value.getX()
+                    + ", y = " + value.getY());
+        }
+        assertEquals(x - 50, listNeighbors.get(0).getX());
+        assertEquals(y + 75, listNeighbors.get(1).getY());
+        assertEquals(x + 50, listNeighbors.get(2).getX());
+        System.out.println("");
+    }
+
+    /**
+     * Test de neighbor4 pour la bordure haute (secteur 3)
+     */
+    @Test
+    void neighbor4BorderHigh3()
+    {
+        Seat seat = new Seat(true);
+        ArrayList<Seat> listSeats = new ArrayList<>();
+        seat.loadSeat(listSeats);
+        Amphi amphi = new Amphi(listSeats.size(), 100, listSeats);
+        Neighborhood n = new Neighborhood(amphi);
+        List<Seat> listNeighbors;
+        int x = 540, y = 0;
+        for(; x < 640; x += 50)
+        {
+            listNeighbors = n.neighbor4(amphi, x, y);
+            amphi.sortListByID(listNeighbors);
+            System.out.println("Les voisins du siège x = " + x + " et y = " + y + " sont : ");
+            for (Seat value : listNeighbors)
+            {
+                System.out.println("Siège ID " + value.getID()
+                        + ", x = " + value.getX()
+                        + ", y = " + value.getY());
+            }
+            assertEquals(x - 50, listNeighbors.get(0).getX());
+            assertEquals(y + 75, listNeighbors.get(1).getY());
+            assertEquals(x + 50, listNeighbors.get(2).getX());
+            System.out.println("");
+        }
+    }
 
     /*----- BORDURE HAUT-----*/
 
