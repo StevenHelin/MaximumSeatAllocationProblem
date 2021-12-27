@@ -16,7 +16,10 @@ import static org.junit.jupiter.api.Assertions.*;
 class AmphiUtilsTest {
 
     @Test
-    void exportImage() throws IOException {
+    /**
+     * Check if a simple export works
+     */
+    void exportImage() {
         Seat seat = new Seat(true);
         ArrayList<Seat> listSeats = new ArrayList<>();
         seat.loadSeat(listSeats);
@@ -24,6 +27,29 @@ class AmphiUtilsTest {
         amphi.greedySolution();
         File f = new File("image.jpg");
         Logger.getGlobal().info("Exported to "+f.getAbsolutePath());
-        AmphiUtils.exportImage(f,amphi);
+        try {
+            assertTrue(AmphiUtils.exportImage(f, amphi));
+        }catch (Exception e){
+            fail();
+        }
+    }
+
+    @Test
+    /**
+     * Check if a simple export works
+     */
+    void exportWrongFormatImage() {
+        Seat seat = new Seat(true);
+        ArrayList<Seat> listSeats = new ArrayList<>();
+        seat.loadSeat(listSeats);
+        Amphi amphi = new Amphi(listSeats.size(), 100, listSeats);
+        amphi.greedySolution();
+        File f = new File("image.png");
+        Logger.getGlobal().info("Exported to "+f.getAbsolutePath());
+        try {
+            assertFalse(AmphiUtils.exportImage(f, amphi));
+        }catch (Exception e){
+            fail();
+        }
     }
 }
