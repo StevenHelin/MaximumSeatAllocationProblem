@@ -20,9 +20,9 @@ class SimulatedAnnealingTest {
         seat.loadSeat(listSeats);
         Amphi amphi = new Amphi(listSeats.size(), 100, listSeats);
         SimulatedAnnealing sa = new SimulatedAnnealing(new PossibleMove(),new Neighborhood(amphi,true),100, HillClimber.MoveChoice.DEFAULT);
-        //amphi.greedySolution();
+        amphi.greedySolution();
         amphi = sa.solve(amphi);
-        Logger.getGlobal().info("valide? : " + amphi.isValid() + " nb sieges occupés : " + amphi.occupiedSeats());
+        Logger.getGlobal().info("valide? : " + amphi.isValid() + " nb sieges occupés : " + amphi.occupiedSeats() + " sur " + amphi.getN());
         for (Seat s : amphi.getListSeat())
         {
             if (!s.isFree()) {
