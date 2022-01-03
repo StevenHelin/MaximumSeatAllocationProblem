@@ -19,7 +19,7 @@ public class Tabou implements Solver
     int interation;
     Tabou.MoveChoice moveChoice;
     Tabou.StopChoice stopChoice;
-    List<Move> tabouList;
+    Amphi tabouAmphi;
 
     /* if the solution has been improved during an iteration */
     private boolean asSolutionImproved;
@@ -41,25 +41,28 @@ public class Tabou implements Solver
         public static final Tabou.StopChoice DEFAULT = NO_IMPROVE;
     }
 
-    public Tabou(MoveI movei, NeighborhoodI neighborhoodi, int interation, List<Move> tabouList)
+    public Tabou(MoveI movei, NeighborhoodI neighborhoodi, int interation, Amphi tabouAmphi)
     {
-        this(movei,neighborhoodi,interation, Tabou.MoveChoice.DEFAULT, Tabou.StopChoice.DEFAULT, tabouList);
+        this(movei,neighborhoodi,interation, Tabou.MoveChoice.DEFAULT, Tabou.StopChoice.DEFAULT, tabouAmphi);
     }
 
-    public Tabou(MoveI movei, NeighborhoodI neighborhoodi, int interation, Tabou.MoveChoice moveChoice, Tabou.StopChoice stopChoice, List<Move> tabouList)
+    public Tabou(MoveI movei, NeighborhoodI neighborhoodi, int interation, Tabou.MoveChoice moveChoice, Tabou.StopChoice stopChoice, Amphi tabouAmphi)
     {
         this.movei = movei;
         this.neighborhoodi = neighborhoodi;
         this.interation = interation;
         this.moveChoice = moveChoice;
         this.stopChoice = stopChoice;
-        this.tabouList = tabouList;
+        this.tabouAmphi = tabouAmphi;
+
     }
 
-    public Amphi tabouClimberSearch(Amphi xd)
+    public Amphi tabouSearch(Amphi xd)
     {
         s = System.currentTimeMillis();/* for execution time only */
-        Amphi x = xd.deepCopy(),xstar = xd.deepCopy();
+        Amphi x = xd.deepCopy(), xstar = x.deepCopy();
+        /* add the current solution to the tabou list*/
+        tabouAmphi = x.deepCopy();
         Move selectmove;
         int i=0;
         /* choose a seat to start */
@@ -79,12 +82,12 @@ public class Tabou implements Solver
             {
                 /* find the seat used for the move */
                 Move finalSelectmove = selectmove;
-                Optional<Seat> seat=x.getListSeat().stream().filter(L->L.getID() == finalSelectmove.getSeat().getID() ).findFirst();
+                Optional<Seat> seat = x.getListSeat().stream().filter(L->L.getID() == finalSelectmove.getSeat().getID() ).findFirst();
                 if(seat.isPresent() )
                 {
                     /* change the current solution */
                     seat.get().setFree(finalSelectmove.isValue_free());
-                    siegeSelect=seat.get();
+                    siegeSelect = seat.get();
                 }
                 else Logger.getGlobal().warning("Can't find the seat");
 
@@ -171,6 +174,6 @@ public class Tabou implements Solver
     @Override
     public Amphi solve(Amphi amphi)
     {
-        return tabouClimberSearch(amphi);
+        return tabouSearch(amphi);
     }
 }
