@@ -1,7 +1,6 @@
 package solvers;
 
 import data.Amphi;
-
 /**
  * General interface for each solver
  */
