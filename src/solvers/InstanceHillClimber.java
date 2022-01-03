@@ -9,15 +9,22 @@ import solvers.neighborhood.NeighborhoodI;
 public class InstanceHillClimber extends Thread{
 
     private Amphi amphi;
+    private MoveI movei;
+    private NeighborhoodI neighborhoodi;
+    private int interation;
+    private HillClimber.MoveChoice moveChoice;
+    private HillClimber.StopChoice stopChoice;
+
     public InstanceHillClimber(MoveI movei, NeighborhoodI neighborhoodi, int interation, HillClimber.MoveChoice moveChoice, HillClimber.StopChoice stopChoice, Amphi amphi){
         this.amphi = amphi;
+        this.movei = movei;
+        this.neighborhoodi = neighborhoodi;
+        this.interation = interation;
+        this.moveChoice = moveChoice;
+        this.stopChoice = stopChoice;
     }
 
     public void run() {
-        try {
-            HillClimber hillClimber = new HillClimber(new PossibleMove(), new Neighborhood(amphi, true), 100, HillClimber.MoveChoice.DEFAULT, HillClimber.StopChoice.ITERATION);
-        } catch (InterruptedException ex) {
-            System.out.println("Processus léger interrompu");
-        }
+        HillClimber hillClimber = new HillClimber(movei, neighborhoodi, interation, moveChoice, stopChoice);
     }
 }
