@@ -9,6 +9,7 @@ import solvers.neighborhood.NeighborhoodI;
 public class InstanceHillClimber extends Thread{
 
     private Amphi amphi;
+    private Amphi amphicopie;
     private Amphi amphisoluce;
     private MoveI movei;
     private NeighborhoodI neighborhoodi;
@@ -23,12 +24,12 @@ public class InstanceHillClimber extends Thread{
         this.interation = interation;
         this.moveChoice = moveChoice;
         this.stopChoice = stopChoice;
-        this.amphisoluce =this.amphi;
+        Amphi amphicopie= amphi.deepCopy();
     }
 
     public void run() {
         HillClimber hillClimber = new HillClimber(movei, neighborhoodi, interation, moveChoice, stopChoice);
-        amphisoluce=hillClimber.solve(amphi);
+       Amphi amphisoluce=hillClimber.solve(amphicopie);
     }
 
     public Amphi getAmphisoluce() {
