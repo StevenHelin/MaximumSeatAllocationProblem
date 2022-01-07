@@ -25,6 +25,9 @@ public class Tabou implements Solver
     /* for the execution time measurement */
     private long e,s;
 
+    public Tabou(MoveI movei, NeighborhoodI neighborhoodi, int interation, MoveChoice aDefault, StopChoice aDefault1) {
+    }
+
     /* list all the possible ways to choose a move */
     public enum MoveChoice
     {
@@ -67,7 +70,7 @@ public class Tabou implements Solver
         {
             this.asSolutionImproved = false;
             /* select a move between all possible moves */
-            selectmove = chooseMove(movei.getMoves(neighborhoodi.getNeighborhood(x, siegeSelect), x) );
+            selectmove = chooseMove(movei.getMoves(neighborhoodi.getNeighborhood(x, siegeSelect), x), seatTabou);
             if(selectmove == null)
             {
                 Logger.getGlobal().info("Arrêt par move inexistant à " + siegeSelect + "et i = " + i);

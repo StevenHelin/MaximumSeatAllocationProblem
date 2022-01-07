@@ -19,8 +19,7 @@ class TabouTest
         ArrayList<Seat> listSeats = new ArrayList<>();
         seat.loadSeat(listSeats);
         Amphi amphi = new Amphi(listSeats.size(), 0, listSeats);
-        Amphi tabouAmphi = new Amphi();
-        Tabou tabou = new Tabou(new PossibleMove(),new Neighborhood(amphi,true),100, Tabou.MoveChoice.DEFAULT, Tabou.StopChoice.ITERATION, tabouAmphi);
+        Tabou tabou = new Tabou(new PossibleMove(),new Neighborhood(amphi,true),100, Tabou.MoveChoice.DEFAULT, Tabou.StopChoice.ITERATION);
         //amphi.greedySolution();
         amphi = tabou.solve(amphi);
         System.out.println("valide? : " + amphi.isValid() + " nb sieges occupés : " + amphi.occupiedSeats());
