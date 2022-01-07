@@ -25,9 +25,6 @@ public class Tabou implements Solver
     /* for the execution time measurement */
     private long e,s;
 
-    public Tabou(MoveI movei, NeighborhoodI neighborhoodi, int interation, MoveChoice aDefault, StopChoice aDefault1) {
-    }
-
     /* list all the possible ways to choose a move */
     public enum MoveChoice
     {
@@ -48,7 +45,7 @@ public class Tabou implements Solver
         this(movei,neighborhoodi,interation, Tabou.MoveChoice.DEFAULT, Tabou.StopChoice.DEFAULT);
     }
 
-    public Tabou(MoveI movei, NeighborhoodI neighborhoodi, int interation, Tabou.MoveChoice moveChoice, Tabou.StopChoice stopChoice, Amphi tabouAmphi)
+    public Tabou(MoveI movei, NeighborhoodI neighborhoodi, int interation, Tabou.MoveChoice moveChoice, Tabou.StopChoice stopChoice)
     {
         this.movei = movei;
         this.neighborhoodi = neighborhoodi;
