@@ -19,7 +19,6 @@ public class Tabou implements Solver
     int interation;
     Tabou.MoveChoice moveChoice;
     Tabou.StopChoice stopChoice;
-    Amphi tabouAmphi;
 
     /* if the solution has been improved during an iteration */
     private boolean asSolutionImproved;
@@ -41,9 +40,9 @@ public class Tabou implements Solver
         public static final Tabou.StopChoice DEFAULT = NO_IMPROVE;
     }
 
-    public Tabou(MoveI movei, NeighborhoodI neighborhoodi, int interation, Amphi tabouAmphi)
+    public Tabou(MoveI movei, NeighborhoodI neighborhoodi, int interation)
     {
-        this(movei,neighborhoodi,interation, Tabou.MoveChoice.DEFAULT, Tabou.StopChoice.DEFAULT, tabouAmphi);
+        this(movei,neighborhoodi,interation, Tabou.MoveChoice.DEFAULT, Tabou.StopChoice.DEFAULT);
     }
 
     public Tabou(MoveI movei, NeighborhoodI neighborhoodi, int interation, Tabou.MoveChoice moveChoice, Tabou.StopChoice stopChoice, Amphi tabouAmphi)
@@ -53,20 +52,17 @@ public class Tabou implements Solver
         this.interation = interation;
         this.moveChoice = moveChoice;
         this.stopChoice = stopChoice;
-        this.tabouAmphi = tabouAmphi;
-
     }
 
     public Amphi tabouSearch(Amphi xd)
     {
         s = System.currentTimeMillis();/* for execution time only */
         Amphi x = xd.deepCopy(), xstar = x.deepCopy();
-        /* add the current solution to the tabou list*/
-        tabouAmphi = x.deepCopy();
         Move selectmove;
         int i=0;
         /* choose a seat to start */
         Seat siegeSelect = choixSiege(x);
+        Seat seatTabou = updateTabou(siegeSelect);
         while (critereArret(i))
         {
             this.asSolutionImproved = false;
@@ -131,18 +127,36 @@ public class Tabou implements Solver
      * @param listmove
      * @return
      */
-    public Move chooseMove(List<Move> listmove)
+    public Move chooseMove(List<Move> listmove, Seat seatTabou)
     {
         if(listmove.size() == 0)return null;
 
         switch (this.moveChoice)
         {
-            case FIRST:return listmove.get(0);
-            case LAST:return listmove.get(listmove.size()-1);
+            case FIRST:
+            {
+                if(!isTabou(seatTabou, listmove.get(0).getSeat() ) )
+                {
+                    return listmove.get(0);
+                }
+                break;
+            }
+            case LAST:
+            {
+                if(!isTabou(seatTabou, listmove.get(listmove.size() - 1).getSeat() ) )
+                {
+                    return listmove.get(listmove.size()-1);
+                }
+                break;
+            }
             case RANDOM:
             {
-                Random r= new Random();
-                return listmove.get(r.nextInt(listmove.size() ) );
+                Random r = new Random();
+                if(!isTabou(seatTabou, listmove.get(r.nextInt(listmove.size() ) ).getSeat() ) )
+                {
+                    return listmove.get(r.nextInt(listmove.size() ) );
+                }
+                return chooseMove(listmove, seatTabou);
             }
         }
         return null;
@@ -163,6 +177,28 @@ public class Tabou implements Solver
             seat.get().setFree(move.isValue_free() );
         }
         return temp.isValid();
+    }
+
+    /**
+     * Update the value of the tabou
+     * @param seat
+     * @return
+     */
+    public Seat updateTabou(Seat seat)
+    {
+        Seat seatTabou = seat;
+        return seatTabou;
+    }
+
+    /**
+     * Return true is seat is the same as seatTabou
+     * @param seatTabou
+     * @param seat
+     * @return
+     */
+    public boolean isTabou(Seat seatTabou, Seat seat)
+    {
+        return seat == seatTabou;
     }
 
     @Override
