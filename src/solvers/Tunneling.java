@@ -83,7 +83,7 @@ public class Tunneling implements Solver {
                     asSolutionImproved = true;
                     xstar = x.deepCopy();
                 } else {
-                    x = phaseTunneling(x, nombreRandom);
+                    x = phaseTunneling(x, randomIteration);
                 }
             }
             i++;
@@ -166,7 +166,7 @@ public class Tunneling implements Solver {
         int i = 0;
         while (i<nbRandom && !valid) {
             s = amphi.getListSeat().get(amphi.getListSeat().indexOf(remplis.get(rand.nextInt(remplis.size()))));
-            x.getListSeat().get(amphi.getListSeat().indexOf(s)).setFree(false);
+            x.getListSeat().get(amphi.getListSeat().indexOf(s)).setFree(true);
             x.getListSeat().get(amphi.getListSeat().indexOf(vides.get(rand.nextInt(vides.size())))).setFree(false);
             if (x.isValid()){
                 valid = true;
