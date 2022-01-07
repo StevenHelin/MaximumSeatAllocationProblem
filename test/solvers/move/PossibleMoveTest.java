@@ -71,4 +71,57 @@ class PossibleMoveTest {
         assertEquals(1,list_moves.size());
         assertEquals(listSeats.get(2),list_moves.get(0).getSeat());
     }
+
+    @Test
+    /**
+     * Test with 0 possible moves
+     */
+    void getMoves3() {
+        Seat seat = new Seat(true);
+        ArrayList<Seat> listSeats = new ArrayList<>();
+        seat.loadSeat(listSeats);
+        Amphi amphi = new Amphi(listSeats.size(), 100, listSeats);
+
+        PossibleMove pm = new PossibleMove();
+        List<Move> list_moves = pm.getMoves(null,amphi);
+        Logger.getGlobal().info(list_moves.toString());
+        assertEquals(0,list_moves.size());
+    }
+
+    @Test
+    /**
+     * Test with moves that allow unload
+     */
+    void getUnloadMoves() {
+        Seat seat = new Seat(true);
+        ArrayList<Seat> listSeats = new ArrayList<>();
+        seat.loadSeat(listSeats);
+        for (Seat s : listSeats) {
+            s.setFree(false);
+        }
+        Amphi amphi = new Amphi(listSeats.size(), 0, listSeats);
+
+        PossibleMove pm = new PossibleMove(true,true);
+        List<Move> list_moves = pm.getMoves(amphi.getListSeat(),amphi);
+        Logger.getGlobal().info(list_moves.toString());
+        assertEquals(listSeats.size(),list_moves.size());
+    }
+    @Test
+    /**
+     * Test with moves that allow unload
+     */
+    void getUnloadMoves2() {
+        Seat seat = new Seat(false);
+        ArrayList<Seat> listSeats = new ArrayList<>();
+        seat.loadSeat(listSeats);
+        for (Seat s : listSeats) {
+            s.setFree(false);
+        }
+        Amphi amphi = new Amphi(listSeats.size(), 0, listSeats);
+
+        PossibleMove pm = new PossibleMove(false,false);
+        List<Move> list_moves = pm.getMoves(amphi.getListSeat(),amphi);
+        Logger.getGlobal().info(list_moves.toString());
+        assertEquals(0,list_moves.size());
+    }
 }
