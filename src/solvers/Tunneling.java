@@ -167,7 +167,9 @@ public class Tunneling implements Solver {
         while (i<nbRandom && !valid) {
             s = amphi.getListSeat().get(amphi.getListSeat().indexOf(remplis.get(rand.nextInt(remplis.size()))));
             x.getListSeat().get(amphi.getListSeat().indexOf(s)).setFree(true);
-            x.getListSeat().get(amphi.getListSeat().indexOf(vides.get(rand.nextInt(vides.size())))).setFree(false);
+            if(vides.size()>0){
+                x.getListSeat().get(amphi.getListSeat().indexOf(vides.get(rand.nextInt(vides.size())))).setFree(false);
+            }
             if (x.isValid()){
                 valid = true;
             }
