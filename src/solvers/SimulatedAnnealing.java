@@ -17,13 +17,13 @@ public class SimulatedAnnealing extends HillClimber{
     private double temperature;
     private Random r;
 
-    public SimulatedAnnealing(MoveI movei, NeighborhoodI neighborhoodi, int interation, MoveChoice moveChoice) {
-        super(movei, neighborhoodi, interation, moveChoice, StopChoice.ITERATION);
+    public SimulatedAnnealing(MoveI movei, NeighborhoodI neighborhoodi, int iteration, MoveChoice moveChoice) {
+        super(movei, neighborhoodi, iteration, moveChoice, StopChoice.ITERATION);
         this.r = new Random();
     }
 
     private void initTemperature(){
-        this.temperature = 10;
+        this.temperature = Math.max(10,interation);
     }
     private void updateTemperature(){
         this.temperature*=0.95;
@@ -31,7 +31,6 @@ public class SimulatedAnnealing extends HillClimber{
 
     @Override
     public Amphi solve(Amphi xd) {
-        // todo
         s = System.currentTimeMillis();/* for execution time only */
         Amphi x= xd.deepCopy(),xstar = xd.deepCopy();
         Move selectmove;
