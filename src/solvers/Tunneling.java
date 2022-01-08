@@ -155,8 +155,8 @@ public class Tunneling implements Solver {
     }
 
     @Override
-    public long executionTime() {
-        return (e - s) / 1000L;
+    public double executionTime() {
+        return (e - s) / 1000d;
     }
 
     @Override
