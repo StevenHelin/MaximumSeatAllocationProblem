@@ -37,38 +37,42 @@ class EvaluationTabouTest
     @Test
     void tabouTestV4()
     {
-        int beta = 100;
         Seat seat = new Seat(true);
         ArrayList<Seat> listSeats = new ArrayList<>();
         seat.loadSeat(listSeats);
-        Amphi amphi = new Amphi(listSeats.size(), beta, listSeats);
+        for(int beta = 100; beta <= 200; beta = beta + 20)
+        {
+            Amphi amphi = new Amphi(listSeats.size(), beta, listSeats);
 
-        Solver s = new Tabou(new PossibleMove(),
-                new Neighborhood(amphi,true),100,
-                Tabou.MoveChoice.DEFAULT, Tabou.StopChoice.ITERATION);
-        Evaluation evaluation = new Evaluation(s,100,amphi);
+            Solver s = new Tabou(new PossibleMove(),
+                    new Neighborhood(amphi,true),100,
+                    Tabou.MoveChoice.DEFAULT, Tabou.StopChoice.ITERATION);
+            Evaluation evaluation = new Evaluation(s,100,amphi);
 
-        evaluation.experiment();
+            evaluation.experiment();
 
-        evaluation.exportCSV(new File("sa_experience/tabouTest/Voisinage4/tabouTestV4Beta"+ beta +".csv"));
+            evaluation.exportCSV(new File("sa_experience/tabouTest/Voisinage4/tabouTestV4Beta"+ beta +".csv"));
+        }
     }
 
     @Test
     void tabouTestV8()
     {
-        int beta = 100;
         Seat seat = new Seat(true);
         ArrayList<Seat> listSeats = new ArrayList<>();
         seat.loadSeat(listSeats);
-        Amphi amphi = new Amphi(listSeats.size(), beta, listSeats);
+        for(int beta = 100; beta <= 200; beta = beta + 20)
+        {
+            Amphi amphi = new Amphi(listSeats.size(), beta, listSeats);
 
-        Solver s = new Tabou(new PossibleMove(),
-                new Neighborhood(amphi,false),100,
-                Tabou.MoveChoice.DEFAULT, Tabou.StopChoice.ITERATION);
-        Evaluation evaluation = new Evaluation(s,100,amphi);
+            Solver s = new Tabou(new PossibleMove(),
+                    new Neighborhood(amphi,false),100,
+                    Tabou.MoveChoice.DEFAULT, Tabou.StopChoice.ITERATION);
+            Evaluation evaluation = new Evaluation(s,100,amphi);
 
-        evaluation.experiment();
+            evaluation.experiment();
 
-        evaluation.exportCSV(new File("sa_experience/tabouTest/Voisinage8/tabouTestV8Beta"+ beta +".csv"));
+            evaluation.exportCSV(new File("sa_experience/tabouTest/Voisinage8/tabouTestV8Beta"+ beta +".csv"));
+        }
     }
 }

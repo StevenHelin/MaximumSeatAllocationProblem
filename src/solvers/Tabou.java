@@ -152,10 +152,12 @@ public class Tabou implements Solver
             case RANDOM:
             {
                 Random r = new Random();
-                if(!isTabou(seatTabou, listmove.get(r.nextInt(listmove.size() ) ).getSeat() ) )
+                int indexAleatoire = r.nextInt(listmove.size() );
+                if(!isTabou(seatTabou, listmove.get(indexAleatoire).getSeat() ) )
                 {
-                    return listmove.get(r.nextInt(listmove.size() ) );
+                    return listmove.get(indexAleatoire);
                 }
+                listmove.remove(indexAleatoire);
                 return chooseMove(listmove, seatTabou);
             }
         }
