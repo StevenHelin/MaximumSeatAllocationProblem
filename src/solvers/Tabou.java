@@ -202,7 +202,7 @@ public class Tabou implements Solver
     }
 
     @Override
-    public long executionTime()
+    public double executionTime()
     {
         return (e - s) / 1000L;
     }
