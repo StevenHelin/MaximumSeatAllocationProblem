@@ -64,8 +64,17 @@ public class Tunneling implements Solver {
             /* select a move between all possible moves */
             selectmove = chooseMove(movei.getMoves(neighborhoodi.getNeighborhood(x,siegeSelect),x));
             if(selectmove==null){
-                Logger.getGlobal().info("Arrêt par move inexistant à " + siegeSelect + "et i = " + i);
-                break;
+                Amphi temp = phaseTunneling(x, randomIteration);
+                if (temp.equals(x)){
+                    Logger.getGlobal().info("Arrêt par move inexistant à " + siegeSelect + "et i = " + i);
+                    break;
+                }else{
+                    selectmove = chooseMove(movei.getMoves(neighborhoodi.getNeighborhood(x,siegeSelect),x));
+                    if(selectmove==null){
+                        Logger.getGlobal().info("Arrêt par move inexistant à " + siegeSelect + "et i = " + i);
+                        break;
+                    }
+                }
             }
             /* change the current solution if the affection is allowed */
             if (isValid(selectmove,x)){
@@ -82,9 +91,9 @@ public class Tunneling implements Solver {
                 if(xstar.occupiedSeats() < x.occupiedSeats()){
                     asSolutionImproved = true;
                     xstar = x.deepCopy();
-                } else {
+                }/*else{
                     x = phaseTunneling(x, randomIteration);
-                }
+                }*/
             }
             i++;
         }
@@ -146,8 +155,8 @@ public class Tunneling implements Solver {
     }
 
     @Override
-    public long executionTime() {
-        return (e - s) / 1000L;
+    public double executionTime() {
+        return (e - s) / 1000d;
     }
 
     @Override
@@ -165,10 +174,12 @@ public class Tunneling implements Solver {
         Seat s;
         int i = 0;
         while (i<nbRandom && !valid) {
-            s = amphi.getListSeat().get(amphi.getListSeat().indexOf(remplis.get(rand.nextInt(remplis.size()))));
-            x.getListSeat().get(amphi.getListSeat().indexOf(s)).setFree(true);
-            if(vides.size()>0){
-                x.getListSeat().get(amphi.getListSeat().indexOf(vides.get(rand.nextInt(vides.size())))).setFree(false);
+            if(remplis.size()>0){
+                s = amphi.getListSeat().get(amphi.getListSeat().indexOf(remplis.get(rand.nextInt(remplis.size()))));
+                x.getListSeat().get(amphi.getListSeat().indexOf(s)).setFree(true);
+                if(vides.size()>0){
+                    x.getListSeat().get(amphi.getListSeat().indexOf(vides.get(rand.nextInt(vides.size())))).setFree(false);
+                }
             }
             if (x.isValid()){
                 valid = true;

@@ -6,9 +6,9 @@ import java.util.Scanner;
 
 public class MultiThreadHillClimber implements Solver{
     @Override
-    public long executionTime() {
+    public double executionTime() {
         // todo
-        return 0;
+        return 0d;
     }
 
     @Override

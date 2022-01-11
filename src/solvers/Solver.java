@@ -9,7 +9,7 @@ public interface Solver {
      * Return the execution time of the last procedure call
      * @return : time in seconds
      */
-    public long executionTime();
+    public double executionTime();
 
     public Amphi solve(Amphi amphi);
 }
