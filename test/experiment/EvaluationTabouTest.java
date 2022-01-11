@@ -35,21 +35,24 @@ class EvaluationTabouTest
     }
 
     @Test
-    void tabou_test2()
+    void tabouTestV4()
     {
         Seat seat = new Seat(true);
         ArrayList<Seat> listSeats = new ArrayList<>();
         seat.loadSeat(listSeats);
-        Amphi amphi = new Amphi(listSeats.size(), 100, listSeats);
+        for(int i = 100; i <= 200; i = i + 20)
+        {
+            Amphi amphi = new Amphi(listSeats.size(), 100, listSeats);
 
-        Solver s = new Tabou(new PossibleMove(),
-                new Neighborhood(amphi,true),100,
-                Tabou.MoveChoice.DEFAULT, Tabou.StopChoice.ITERATION);
-        Evaluation evaluation = new Evaluation(s,100,amphi);
+            Solver s = new Tabou(new PossibleMove(),
+                    new Neighborhood(amphi,true),100,
+                    Tabou.MoveChoice.DEFAULT, Tabou.StopChoice.ITERATION);
+            Evaluation evaluation = new Evaluation(s,100,amphi);
 
-        evaluation.experiment();
+            evaluation.experiment();
 
-        evaluation.exportCSV(new File("tabou_test2.csv"));
+            evaluation.exportCSV(new File("tabouTestV4Beta"+ i +".csv"));
+        }
     }
 
     @Test
@@ -58,15 +61,18 @@ class EvaluationTabouTest
         Seat seat = new Seat(true);
         ArrayList<Seat> listSeats = new ArrayList<>();
         seat.loadSeat(listSeats);
-        Amphi amphi = new Amphi(listSeats.size(), 100, listSeats);
+        for(int i = 100; i <= 200; i = i + 20)
+        {
+            Amphi amphi = new Amphi(listSeats.size(), 100, listSeats);
 
-        Solver s = new Tabou(new PossibleMove(),
-                new Neighborhood(amphi,false),100,
-                Tabou.MoveChoice.DEFAULT, Tabou.StopChoice.ITERATION);
-        Evaluation evaluation = new Evaluation(s,100,amphi);
+            Solver s = new Tabou(new PossibleMove(),
+                    new Neighborhood(amphi,true),100,
+                    Tabou.MoveChoice.DEFAULT, Tabou.StopChoice.ITERATION);
+            Evaluation evaluation = new Evaluation(s,100,amphi);
 
-        evaluation.experiment();
+            evaluation.experiment();
 
-        evaluation.exportCSV(new File("tabou_test3.csv"));
+            evaluation.exportCSV(new File("tabouTestV8Beta"+ i +".csv"));
+        }
     }
 }
