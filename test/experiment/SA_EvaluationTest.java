@@ -153,4 +153,29 @@ public class SA_EvaluationTest {
             evaluation.exportCSV(new File("sa_experience/final/eval-" + beta + "ag.csv"));
         }
     }
+
+    @Test
+    /**
+     * Test when we increase the number of iteration
+     */
+    void bigIterationTest(){
+        int it = 1000;
+        Evaluation evaluation;
+        SimulatedAnnealing distance;
+        Seat seat = new Seat(true);
+        ArrayList<Seat> listSeats = new ArrayList<>();
+        seat.loadSeat(listSeats);
+        Amphi amphi;
+
+        for(int beta = 100 ; beta <= 200 ; beta += 20) {
+            Logger.getGlobal().info("Bêta = " + beta + "+ iteration : " + it);
+            amphi = new Amphi(listSeats.size(), beta, listSeats);
+            amphi.greedySolution();
+            distance = new SimulatedAnnealing(new PossibleMove(true, false), new AroundNeighborhood(beta), it, HillClimber.MoveChoice.DEFAULT);
+
+            evaluation = new Evaluation(distance, 10, amphi.deepCopy());
+            evaluation.experiment();
+            evaluation.exportCSV(new File("sa_experience/big_iteration/" + beta + ".csv"));
+        }
+    }
 }
