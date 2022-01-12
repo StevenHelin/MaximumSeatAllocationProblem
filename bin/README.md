@@ -1,2 +1,0 @@
-# MaximumSeatAllocationProblem
-Code for the MaximumSeatAllocationProblem
